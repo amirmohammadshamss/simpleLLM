@@ -1,0 +1,92 @@
+{
+  "checkpoint": "checkpoints/shakespeare-prototype-2000/best.pt",
+  "checkpoint_sha256": "f2ac262e32d33025e81349363fcb07e7073ff1dc9fba736a09130810efb8b085",
+  "prompts_sha256": "f0068b024a61a491dfc0c4e5b385839a49b0c7d37c93d1cc8b39ada57e7a13f8",
+  "seed": 42,
+  "temperature": 0.8,
+  "top_k": 40,
+  "max_new_tokens": 100,
+  "device": "cpu",
+  "samples": [
+    {
+      "prompt": "Once upon a time",
+      "output": "Once upon a time isthoul s\nThand ndandirer ce no, onoutnd bed fe tho erear heed land thaqurd orake\nAngous plgnd heno"
+    },
+    {
+      "prompt": "There was a little bird",
+      "output": "There was a little bird isthoul s\nThand ndandirer ce alotonde nd bed fe tho e tarareed lamaton,\nThe or be thall thegrl heno"
+    },
+    {
+      "prompt": "One sunny morning",
+      "output": "One sunny morning isthoul s\nThand nowe my char alotonou nd bed fe tho e tarareso lamston,\nThe or be thall thegnd heer"
+    },
+    {
+      "prompt": "The girl opened the door",
+      "output": "The girl opened the door isth he shathis nd f myor creno,\nSofannd bed fe tho e tar heed lamaton,\nThe or be thall thegrl heer"
+    },
+    {
+      "prompt": "A small cat wanted",
+      "output": "A small cat wanted isthoul s\nThand nowe my char alotonde nd bed fe tho e tarouced land thaqurd orake\nAngous plgnd henc"
+    },
+    {
+      "prompt": "In a quiet village",
+      "output": "In a quiet village isth he shathis nd fonger crind,\nSofannd bed fe tho erear heed land thaqurd orake thall thegnd henc"
+    },
+    {
+      "prompt": "The boy found a key",
+      "output": "The boy found a key isthoul s\nThand ndan my char alotonde nd bed fe tho e tarareed lamaton,\nThe or be thall thegnd heno"
+    },
+    {
+      "prompt": "A friendly dog ran",
+      "output": "A friendly dog ran isthoul s\nThand ndandirer ce an, onoutnd bed fe tho e tarareed land thaqurd or be\nAngous plgnd heer"
+    },
+    {
+      "prompt": "The rabbit was afraid",
+      "output": "The rabbit was afraid isth he shad\nTay the my charend, onoutnd bed fe tho e tarareso l maton,\nThe or be thall thegrl heer"
+    },
+    {
+      "prompt": "At the edge of the forest",
+      "output": "At the edge of the forest isth he shad\nTay the my char no, ousthnd bem fe tho e tarareed lamston,\nThe or be thall thegrl heer"
+    },
+    {
+      "prompt": "Two friends decided",
+      "output": "Two friends decided isth he shathis nd fonger crene,\nSofannd bed fe tho e tarareso land th,\nThe chake thall thegnd heno"
+    },
+    {
+      "prompt": "The old tree had",
+      "output": "The old tree had isth he shad\nTay the my char no, ousthnd bed fe tho e tarareed land thaqurd or be\nAngous plgrl heer"
+    },
+    {
+      "prompt": "A child looked at the stars",
+      "output": "A child looked at the stars isthoul s\nThand ndan my char anotonde nd bed fe tho e tarareed land thaqurd or be\nAngous plgrl heer"
+    },
+    {
+      "prompt": "It began to rain",
+      "output": "It began to rain isth he shad\nTay the my charend, onoutnd bed fe tho e tarareed land thaqurd or be\nAngous plgnd heer"
+    },
+    {
+      "prompt": "The lost toy was",
+      "output": "The lost toy was isthoul s\nThand nowe my char alotonde nd bed fe tho erear heed lamaton,\nThe or be thall thegrl heer"
+    },
+    {
+      "prompt": "A kind woman said",
+      "output": "A kind woman said isthoul s\nThand nowe my char no, onoutnd bed fe tho e tar heed lamaton,\nThe chake thall thegnd heno"
+    },
+    {
+      "prompt": "The little boat sailed",
+      "output": "The little boat sailed isth he shathis nd fonger crene,\nSofannd bemane tho e tar heed lamaton,\nThe or be thall thegnd heer"
+    },
+    {
+      "prompt": "On the way home",
+      "output": "On the way home isth he shad\nTay the my char no, ousthnd bemane t o e tarareed lamston,\nThe or be thall thegrl heer"
+    },
+    {
+      "prompt": "The bear shared",
+      "output": "The bear shared isth hof avet,\nWhat direr we no, onoutnd bed fe tho e tarareso lamatr cofrd or be\nAngous plgrl heno"
+    },
+    {
+      "prompt": "At last they learned",
+      "output": "At last they learned isth he shad\nTay the my charend, ousthnd bed fe tho e tarareed land thaqurd or be thall thegrl hee,"
+    }
+  ]
+}

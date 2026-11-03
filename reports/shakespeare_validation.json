@@ -1,0 +1,31 @@
+{
+  "environment": {
+    "python": "3.12.15",
+    "torch": "2.15.0",
+    "os": "macOS-27.2-arm64-arm-64bit",
+    "device": "cpu",
+    "git_commit": "uncommitted"
+  },
+  "checkpoint": "checkpoints/shakespeare-prototype-2000/best.pt",
+  "checkpoint_step": 2000,
+  "dataset_manifest_sha256": "5dcf75da5b434ac6cec4cc229c222e34e11e22b73f9a42da90b63d88fc7e9c4c",
+  "split": "validation",
+  "evaluation_policy": "every target once in sequential nonoverlapping context windows; same tokenizer and targets for all models",
+  "bigram_training_steps": 500,
+  "bigram_processed_tokens": 256000,
+  "trained_gpt": {
+    "loss": 2.411430205205084,
+    "perplexity": 11.149896386864787,
+    "target_tokens": 111538
+  },
+  "random_gpt": {
+    "loss": 4.196694996249701,
+    "perplexity": 66.46629627489222,
+    "target_tokens": 111538
+  },
+  "trained_bigram": {
+    "loss": 2.516376133327959,
+    "perplexity": 12.383638596569137,
+    "target_tokens": 111538
+  }
+}

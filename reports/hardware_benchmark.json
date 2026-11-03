@@ -1,0 +1,65 @@
+{
+  "environment": {
+    "python": "3.12.15",
+    "torch": "2.15.0",
+    "os": "macOS-27.2-arm64-arm-64bit",
+    "device": "mps",
+    "git_commit": "uncommitted"
+  },
+  "config": {
+    "model": {
+      "vocab_size": 8192,
+      "n_layers": 8,
+      "d_model": 384,
+      "n_heads": 6,
+      "d_ff": 1536,
+      "context_length": 512,
+      "dropout": 0.1,
+      "tie_embeddings": true
+    },
+    "training": {
+      "seed": 42,
+      "device": "auto",
+      "learning_rate": 0.0003,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "weight_decay": 0.1,
+      "gradient_clip_norm": 1.0,
+      "micro_batch_size": 4,
+      "gradient_accumulation_steps": 4,
+      "warmup_steps": 200,
+      "eval_every_steps": 500,
+      "save_every_steps": 500
+    }
+  },
+  "dtype": "float32",
+  "parameters": 17538816,
+  "synthetic_data": true,
+  "learning_rate_policy": "constant configured learning rate; no scheduler; kernel benchmark only",
+  "warmup_steps_excluded": 10,
+  "measured_steps": 100,
+  "tokens_per_optimizer_step": 8192,
+  "measured_processed_tokens": 819200,
+  "elapsed_measured_seconds": 81.36994249903364,
+  "tokens_per_second": 10067.599593175686,
+  "mean_step_seconds": 0.8136994249903364,
+  "median_step_seconds": 0.8255500619998202,
+  "first_ten_mean_seconds": 0.819139749801252,
+  "last_ten_mean_seconds": 0.7478236333990935,
+  "process_peak_rss_bytes": 555319296,
+  "sampled_device_allocated_peak_bytes": 387592704,
+  "sampled_driver_allocated_peak_bytes": 2214477824,
+  "cuda_peak_allocated_bytes": null,
+  "memory_limitations": "MPS samples occur after backward/optimizer updates and can miss transient peaks. Driver allocation includes cache. Process RSS excludes some device allocations. Total system unified-memory peak is not measured.",
+  "finite_loss_and_gradients": true,
+  "initial_measured_loss": 6.989749193191528,
+  "final_measured_loss": 0.052631051279604435,
+  "estimated_compute_hours": {
+    "10000001": 0.27591264728470827,
+    "50000000": 1.3795630984672314,
+    "150000000": 4.1386892954016945
+  },
+  "estimate_limitations": "Synthetic fixed batches; excludes real data loading, evaluation, checkpoints, tokenization, and thermal changes beyond this short run. Not a duration guarantee."
+}
