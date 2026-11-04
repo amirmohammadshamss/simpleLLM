@@ -1,0 +1,92 @@
+{
+  "checkpoint": "checkpoints/tinystories-export/model.pt",
+  "checkpoint_sha256": "cf43cb19f3bf96bbc1107bd28e7607a40acd3a801606b9f03800148a21067757",
+  "prompts_sha256": "f0068b024a61a491dfc0c4e5b385839a49b0c7d37c93d1cc8b39ada57e7a13f8",
+  "seed": 42,
+  "temperature": 0.8,
+  "top_k": 40,
+  "max_new_tokens": 150,
+  "device": "cpu",
+  "samples": [
+    {
+      "prompt": "Once upon a time",
+      "output": "Once upon a time there was a little girl named Lily. Lily was a big car and her mom loved to play with her mom. One day, Lily was lots day in her house.\nOne day, she would play to the park and have a big garden. Max was very big, but she didn't help what it. The frog was very pretty and started to play on the grass and she ran to it"
+    },
+    {
+      "prompt": "There was a little bird",
+      "output": "There was a little bird named Timmy. Timmy was to play in the day with his car and ran to the park with the forest. Timmy took a hug with his new dad and gave him him to play and played again.\nTimmy knew and Timmy was no home and he gave him. He was proud and asked for him and said, \"Yes, you can be good best and it.\" \nTom and Lily ran to the"
+    },
+    {
+      "prompt": "One sunny morning",
+      "output": "One sunny morning she had a pretty, her mom was a lot with flowers. The end was very proud of her friends and the little girl was glad that she was happy to play with her friends."
+    },
+    {
+      "prompt": "The girl opened the door",
+      "output": "The girl opened the door and the flower. Then her mom was so happy that it was so happy. \nThey decided to play with the tree for a best things with his dad. They both all on the new park and they were happy and all fun."
+    },
+    {
+      "prompt": "A small cat wanted",
+      "output": "A small cat wanted to help a pretty house. A little girl told her mom to help her mom but she put the big things.\nLily had playing with Lily on her head. She started to have her mom to her toy and mom was to play home. But she told that she was a big tree. She didn't to t be to her mom that she could try to be nice and listen.\nLily"
+    },
+    {
+      "prompt": "In a quiet village",
+      "output": "In a quiet village and the end."
+    },
+    {
+      "prompt": "The boy found a key",
+      "output": "The boy found a key to the tree. He told her mom and told it. He said \"We don't worry, I love you you for a friend. I don't help you to me.\" They said, \"That's friend, Ben and have to play home together.\" They said, \"I can do like my mom, but you will be very good and you love. And you'm glad have careful back.\" \nAnd "
+    },
+    {
+      "prompt": "A friendly dog ran",
+      "output": "A friendly dog ran to the tree. He told her mom and told him. He said he was sad.\nHe was the voice and said, \"I'm my idea. You can be for you fun.\" She said, \"You can play and have to play home. We are nice and you can do like you. I love you to me,\" she said, \"I will play on the grass and play back.\" \nLily "
+    },
+    {
+      "prompt": "The rabbit was afraid",
+      "output": "The rabbit was afraid and happy."
+    },
+    {
+      "prompt": "At the edge of the forest",
+      "output": "At the edge of the forest and the end."
+    },
+    {
+      "prompt": "Two friends decided",
+      "output": "Two friends decided to help and they could play things. One day, his mommy said \"We don't worry, I love you you for a friend. I don't help you to me.\" They said, \"That's friend, Ben and have to play home and do for my box.\" He said, \"Mom, I love you. We have the good friend. What are too better.\"\nTom and Lily ran to the"
+    },
+    {
+      "prompt": "The old tree had",
+      "output": "The old tree had much happy."
+    },
+    {
+      "prompt": "A child looked at the stars",
+      "output": "A child looked at the stars and the tree. Then the lady is a lot and flowers of the park.\nThey are fun and the slide with the big park. They say they say they they not not have new lesson. They are good toys and a big box. They do to play and make fun and cars."
+    },
+    {
+      "prompt": "It began to rain",
+      "output": "It began to rain to the river. Then the lady was so excited to help the tree with the animals.\nThey played the park with the park. They were lots day and the day.\nThey found a big sky. They were happy and all the friends. They looked up and looked to the forest. They played with the water.\nThey played the other fun. The boy were happy and happy. They had happy and"
+    },
+    {
+      "prompt": "The lost toy was",
+      "output": "The lost toy was much happy."
+    },
+    {
+      "prompt": "A kind woman said",
+      "output": "A kind woman said to the tree. Then the lady was so excited to help the tree with the animals.\nThey played the park with the park. They were lots day and the day. They found a big sky. They were happy and all fun. They gave their friends and looked to the forest."
+    },
+    {
+      "prompt": "The little boat sailed",
+      "output": "The little boat sailed to the tree. Then the lady was so happy that it was so happy. \nThe little boy had the boy because he had playing with his new friend and his friend went together. He would play to the park and have a friends. It was so that he lived to the tree and play day of the animals. They were happy and played together and all play with the friends with the "
+    },
+    {
+      "prompt": "On the way home",
+      "output": "On the way home to the woods. Then the lady was so excited to help the tree with the animals.\nOne day, Timmy and found a big big box and it was very very kind. They were excited to play with the toys and started to see the sky.\nThe boy looked and saw a dog very bad and went to the toy house. He was so happy he was glad that he had to fly"
+    },
+    {
+      "prompt": "The bear shared",
+      "output": "The bear shared him and happy. Then they made the way around the kitchen and they ran to the park with the forest.\n\"Sure, let's my mommy to be better to play with fun.\" She said, \"You can buy it with your friends, I don't go and play with the tree. Let't eat you to me,\" she said, \"It will play on the grass and play back.\" \nLily "
+    },
+    {
+      "prompt": "At last they learned",
+      "output": "At last they learned much happy."
+    }
+  ]
+}

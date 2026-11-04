@@ -6,6 +6,7 @@ import json
 import math
 from pathlib import Path
 import time
+from datetime import datetime, timezone
 import torch
 import yaml
 from minigpt.data.dataset import sample_batch
@@ -95,7 +96,11 @@ def main():
     if not args.resume and (args.output / "latest.pt").exists():
         raise ValueError("Output already contains a run; resume it or choose a fresh directory")
     tokenizer.save(args.output / "tokenizer.json")
-    print(json.dumps({"environment": environment(device), "config": resolved, "parameters": sum(p.numel() for p in model.parameters())}), flush=True)
+    run_info = {"environment": environment(device), "config": resolved, "parameters": sum(p.numel() for p in model.parameters()), "started_at_utc": datetime.now(timezone.utc).isoformat(), "start_step": start,
+                "runtime": {"eval_every": args.eval_every, "save_every": args.save_every, "threads": args.threads, "resume": str(args.resume) if args.resume else None, "stop_after": args.stop_after}}
+    with (args.output / "sessions.jsonl").open("a") as sessions:
+        sessions.write(json.dumps(run_info) + "\n")
+    print(json.dumps(run_info), flush=True)
     accumulation = training.get("gradient_accumulation_steps", 1)
     begin = time.perf_counter()
     with (args.output / "metrics.jsonl").open("a") as log:

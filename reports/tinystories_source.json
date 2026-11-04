@@ -1,0 +1,28 @@
+{
+  "repository": "roneneldan/TinyStories",
+  "revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+  "file": "TinyStories-train.txt",
+  "source_url": "https://huggingface.co/datasets/roneneldan/TinyStories/resolve/f54c09fd23315a6f9c86f9dc80f725de7d8f9c64/TinyStories-train.txt",
+  "source_file_metadata": {
+    "type": "file",
+    "oid": "8a7e9d5920f9a21a8cc8fb1a3861b833e25ffce3",
+    "size": 1924281556,
+    "lfs": {
+      "oid": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+      "size": 1924281556,
+      "pointerSize": 135
+    },
+    "xetHash": "e2a1497efc1aa51b2da2a849d5dd2cd153d5bc024901afeade7e35379d8f7b52",
+    "path": "TinyStories-train.txt"
+  },
+  "selection": "first N delimiter-terminated stories in pinned original train file",
+  "documents": 50000,
+  "consumed_source_bytes": 45134794,
+  "consumed_prefix_sha256": "e99c839654a96e4f177587ce6c36a3d3f8086466fc596d1d4ccb535b264fd0f4",
+  "output_sha256": "b05a6542a84b06a4ffdca4fd1a5b48fec02c4787922870966411a9420ef0a377",
+  "transformation": "split <|endoftext|>; remove framing CR/LF only; serialize source index and unnormalized text as UTF-8 JSONL",
+  "license": "CDLA-Sharing-1.0",
+  "license_url": "https://cdla.dev/sharing-1-0/",
+  "attribution": "TinyStories \u2014 Ronen Eldan and Yuanzhi Li; https://huggingface.co/datasets/roneneldan/TinyStories",
+  "verification_limit": "Complete source file is not downloaded or rehashed; pinned repository/file metadata and consumed-prefix/output hashes identify this subset."
+}

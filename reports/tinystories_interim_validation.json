@@ -1,0 +1,36 @@
+{
+  "environment": {
+    "python": "3.12.15",
+    "torch": "2.15.0",
+    "os": "macOS-27.2-arm64-arm-64bit",
+    "device": "cpu",
+    "git_commit": "769d0748687863f7a73f4f713acc7b95e5b1652c",
+    "git_dirty": true
+  },
+  "checkpoint": "checkpoints/tinystories-main/latest.pt",
+  "checkpoint_step": 200,
+  "dataset_manifest_sha256": "6073baa4b3c6dc99fa80407b7ed86c33b8bcf38a21bc3b1c19551f13c6d7f90f",
+  "split": "validation",
+  "evaluation_policy": "every target once in sequential nonoverlapping context windows; same tokenizer and targets for all models",
+  "eval_batch_size": 4,
+  "bigram_training": {
+    "method": "counts",
+    "smoothing": 0.1,
+    "processed_training_pairs": 15340000
+  },
+  "trained_gpt": {
+    "loss": 3.1001534157789368,
+    "perplexity": 22.20135705867158,
+    "target_tokens": 1913489
+  },
+  "random_gpt": {
+    "loss": 8.914066930116036,
+    "perplexity": 7435.840732064342,
+    "target_tokens": 1913489
+  },
+  "trained_bigram": {
+    "loss": 3.15694945764269,
+    "perplexity": 23.498802388093065,
+    "target_tokens": 1913489
+  }
+}

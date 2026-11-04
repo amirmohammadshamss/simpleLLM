@@ -1,0 +1,14 @@
+{
+  "samples_passed": 1006,
+  "seed": 42,
+  "vocab_size": 8192,
+  "tokenizer_sha256": "eebe14bcfe8628ca9f878bfaff5f230cf1f339bfda2bac811138220446cddf3f",
+  "artifact_sha256": "d00c691794da6658d1503359512ecf2f4076d9288ffb40e5e4f98dac7983806f",
+  "checks": [
+    "lossless Unicode round trips",
+    "identical saved/restored token IDs",
+    "special-token boundaries",
+    "Persian/ZWNJ/astral/whitespace/control characters",
+    "literal special-token strings remain ordinary text"
+  ]
+}

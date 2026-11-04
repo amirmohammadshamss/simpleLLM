@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import random
+import time
 import numpy as np
 from minigpt.tokenizer.char_tokenizer import CharTokenizer
 from minigpt.tokenizer.bpe_tokenizer import BPETokenizer
@@ -39,7 +40,7 @@ def split_documents(documents, seed=42):
     return {name: [unique[key] for key in ids] for name, ids in partitions.items()}, partitions, removed
 
 
-def prepare(source, output, mode="text", tokenizer_kind="char", vocab_size=8192, seed=42, source_url=None, revision=None, license_name="not reviewed"):
+def prepare(source, output, mode="text", tokenizer_kind="char", vocab_size=8192, seed=42, source_url=None, revision=None, license_name="not reviewed", bpe_backend="reference"):
     source, output = Path(source), Path(output)
     if output.exists() and any(output.iterdir()):
         raise ValueError("Output directory must be empty; prepared artifacts are immutable")
@@ -56,7 +57,9 @@ def prepare(source, output, mode="text", tokenizer_kind="char", vocab_size=8192,
         documents = [json.loads(line)["text"] for line in text.splitlines() if line.strip()]
         splits, ids, removed = split_documents(documents, seed)
         policy = {"type": "document_hash_dedup_then_seeded_80_10_10", "near_duplicates": "not reviewed"}
-    tokenizer = CharTokenizer.fit("".join(splits["train"])) if tokenizer_kind == "char" else BPETokenizer.fit(splits["train"], vocab_size)
+    begin = time.perf_counter()
+    tokenizer = CharTokenizer.fit("".join(splits["train"])) if tokenizer_kind == "char" else BPETokenizer.fit(splits["train"], vocab_size, backend=bpe_backend, progress=lambda data: print(json.dumps(data), flush=True))
+    tokenizer_fit_seconds = time.perf_counter() - begin
     arrays = {}
     for name, documents in splits.items():
         tokens = []
@@ -76,6 +79,7 @@ def prepare(source, output, mode="text", tokenizer_kind="char", vocab_size=8192,
         (output / f"{name}.ids.json").write_text(json.dumps(ids[name]))
         manifest["splits"][name] = {"documents": len(splits[name]), "tokens": len(array), "raw_bytes": sum(len(d.encode()) for d in splits[name]), "tokens_sha256": digest((output / f"{name}.npy").read_bytes()), "ids_sha256": digest((output / f"{name}.ids.json").read_bytes())}
     (output / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
+    (output / "preparation_metrics.json").write_text(json.dumps({"tokenizer_fit_seconds": tokenizer_fit_seconds, "bpe_backend": bpe_backend, "total_seconds": time.perf_counter() - begin}, indent=2))
     return manifest
 
 
@@ -90,8 +94,9 @@ def main():
     parser.add_argument("--source-url")
     parser.add_argument("--revision")
     parser.add_argument("--license", default="not reviewed")
+    parser.add_argument("--bpe-backend", choices=["reference", "indexed"], default="reference")
     args = parser.parse_args()
-    manifest = prepare(args.source, args.output, args.format, args.tokenizer, args.vocab_size, args.seed, args.source_url, args.revision, args.license)
+    manifest = prepare(args.source, args.output, args.format, args.tokenizer, args.vocab_size, args.seed, args.source_url, args.revision, args.license, args.bpe_backend)
     print(json.dumps({"vocab_size": manifest["actual_vocab_size"], "splits": manifest["splits"]}, indent=2))
 
 

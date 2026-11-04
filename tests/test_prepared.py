@@ -56,6 +56,14 @@ def test_bpe_training_resume_and_cli(tmp_path):
         torch.testing.assert_close(a["model"][key], b["model"][key], atol=0, rtol=0)
     result = subprocess.run([sys.executable, "-m", "minigpt.generate", "--checkpoint", str(full / "best.pt"), "--prompt", "Once", "--max-new-tokens", "4", "--device", "cpu"], check=True, capture_output=True, text=True, timeout=60)
     assert result.stdout.startswith("Once")
+    from minigpt.export import export_checkpoint
+    exported = tmp_path / "export"
+    artifact = export_checkpoint(full / "best.pt", exported)
+    inference = torch.load(exported / "model.pt", weights_only=True)
+    assert "optimizer" not in inference and "rng" not in inference
+    assert artifact["tokenizer_sha256"] == a["config"]["tokenizer_sha256"]
+    restored = subprocess.run([sys.executable, "-m", "minigpt.generate", "--checkpoint", str(exported / "model.pt"), "--prompt", "Once", "--max-new-tokens", "4", "--device", "cpu"], check=True, capture_output=True, text=True, timeout=60)
+    assert result.stdout == restored.stdout
 
 
 def test_bigram_generation():
@@ -74,3 +82,17 @@ def test_evaluation_counts_every_target_once():
     assert result["target_tokens"] == 23
     assert result["perplexity"] == pytest.approx(4)
     assert model.training
+    batched = score(model, tokens, context_length=8, batch_size=4)
+    assert batched["target_tokens"] == result["target_tokens"]
+    assert batched["loss"] == pytest.approx(result["loss"])
+
+
+def test_evaluation_batching_preserves_real_model_loss():
+    from minigpt.evaluation.evaluate import score
+    from minigpt.model.gpt import GPT, GPTConfig
+    model = GPT(GPTConfig(vocab_size=8, n_layers=1, d_model=16, n_heads=2, d_ff=32, context_length=8))
+    tokens = torch.arange(52) % 8
+    sequential = score(model, tokens, context_length=8)
+    batched = score(model, tokens, context_length=8, batch_size=4)
+    assert sequential["target_tokens"] == batched["target_tokens"] == 51
+    assert sequential["loss"] == pytest.approx(batched["loss"], abs=1e-6)

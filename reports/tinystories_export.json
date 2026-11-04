@@ -1,0 +1,12 @@
+{
+  "format": "minigpt-inference-v1",
+  "source_checkpoint_sha256": "6f953302a1202e48338c745564e5f7ff8b864371bc647aaa3cc148fa8883239a",
+  "source_step": 1221,
+  "dataset_manifest_sha256": "6073baa4b3c6dc99fa80407b7ed86c33b8bcf38a21bc3b1c19551f13c6d7f90f",
+  "tokenizer_sha256": "eebe14bcfe8628ca9f878bfaff5f230cf1f339bfda2bac811138220446cddf3f",
+  "files": {
+    "model.pt": "cf43cb19f3bf96bbc1107bd28e7607a40acd3a801606b9f03800148a21067757",
+    "tokenizer.json": "d00c691794da6658d1503359512ecf2f4076d9288ffb40e5e4f98dac7983806f",
+    "config.json": "5003ecddee0098e47b064f6f0e7137ae35fab67078868b41112a94b06fdd67a1"
+  }
+}

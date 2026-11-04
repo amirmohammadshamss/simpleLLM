@@ -1,0 +1,122 @@
+{
+  "dataset_manifest_sha256": "6073baa4b3c6dc99fa80407b7ed86c33b8bcf38a21bc3b1c19551f13c6d7f90f",
+  "seed": 42,
+  "sampled_documents": 2000,
+  "candidate_pairs_scored": 517,
+  "threshold": 0.8,
+  "cross_split_matches": [],
+  "strongest_pairs": [
+    {
+      "documents": [
+        "50329cb78d361eecd9c1c8e9d18f22fbb74ef8893056bc96fd5611a4577893d1",
+        "f866a56e3997eaf03113e1387f3918972963e4c0aa89d9779b9d642290b6e729"
+      ],
+      "splits": [
+        "train",
+        "test"
+      ],
+      "five_word_shingle_jaccard": 0.05818181818181818
+    },
+    {
+      "documents": [
+        "a206cdda01bef545b9470c22ee70f107718faf4574e006652e28862477acfe4f",
+        "f866a56e3997eaf03113e1387f3918972963e4c0aa89d9779b9d642290b6e729"
+      ],
+      "splits": [
+        "train",
+        "test"
+      ],
+      "five_word_shingle_jaccard": 0.057971014492753624
+    },
+    {
+      "documents": [
+        "0cd9babd2b049af745f5e1ca3c7bf07cbef5e5cc7a360dbbe178271c2d59caef",
+        "f866a56e3997eaf03113e1387f3918972963e4c0aa89d9779b9d642290b6e729"
+      ],
+      "splits": [
+        "train",
+        "test"
+      ],
+      "five_word_shingle_jaccard": 0.05329153605015674
+    },
+    {
+      "documents": [
+        "740408b741a8998f423319d93d3adfe0f52aebdf2737396b7a6c791d860f776a",
+        "f866a56e3997eaf03113e1387f3918972963e4c0aa89d9779b9d642290b6e729"
+      ],
+      "splits": [
+        "train",
+        "test"
+      ],
+      "five_word_shingle_jaccard": 0.04819277108433735
+    },
+    {
+      "documents": [
+        "20b8fa875269678bcb7179320f1156c7fc3b625ff35230be2ee6f35eb540e25d",
+        "f866a56e3997eaf03113e1387f3918972963e4c0aa89d9779b9d642290b6e729"
+      ],
+      "splits": [
+        "train",
+        "test"
+      ],
+      "five_word_shingle_jaccard": 0.04263565891472868
+    },
+    {
+      "documents": [
+        "b063b249e970983fb6858d8f2dbcfb1dd909555c410a47c6dd5f639ac22a53d5",
+        "f866a56e3997eaf03113e1387f3918972963e4c0aa89d9779b9d642290b6e729"
+      ],
+      "splits": [
+        "train",
+        "test"
+      ],
+      "five_word_shingle_jaccard": 0.03536977491961415
+    },
+    {
+      "documents": [
+        "7a27ab0ca76c03dfba7a3825e074db13fbfe9166b8f1c982db348993c40b3c57",
+        "f866a56e3997eaf03113e1387f3918972963e4c0aa89d9779b9d642290b6e729"
+      ],
+      "splits": [
+        "train",
+        "test"
+      ],
+      "five_word_shingle_jaccard": 0.03283582089552239
+    },
+    {
+      "documents": [
+        "b27e2db86983c90d5de9f80ee70e97d156a9d633b9ac364b2b1411f966810365",
+        "fdb41ec8cf48cb55da2b46e3a1ce93391a4bf58c472761bfdb1331e674e47a73"
+      ],
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "five_word_shingle_jaccard": 0.032432432432432434
+    },
+    {
+      "documents": [
+        "6e27f6b78911340c8e7023bf3c598aa34ae324500a0d97f4294be52f8c8d87ba",
+        "fb0e69124a52a1a65463c833ffc16f08df27a807b7a78d3bbd107de196dea766"
+      ],
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "five_word_shingle_jaccard": 0.032388663967611336
+    },
+    {
+      "documents": [
+        "287588c2be3e3f6b7d817ee8a7dbf0e653656538b4c0438e66faba5fbcc78794",
+        "facfea79c9b6698bf518f3aa3b26b36f316c8eecd34fe39bb635e184f8370600"
+      ],
+      "splits": [
+        "train",
+        "test"
+      ],
+      "five_word_shingle_jaccard": 0.0319634703196347
+    }
+  ],
+  "method": "seeded document sample; top 5 cross-split candidates by shared non-boilerplate five-word shingles; exact Jaccard scoring",
+  "limitation": "Spot check only; does not establish absence of all near duplicates in the full corpus."
+}

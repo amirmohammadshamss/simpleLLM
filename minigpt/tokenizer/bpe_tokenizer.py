@@ -21,14 +21,21 @@ class BPETokenizer:
     bos_id = 256
     eos_id = 257
 
-    def __init__(self, merges=()):
+    def __init__(self, merges=(), pretokenization=None):
+        if pretokenization not in (None, "unicode_pieces_v1"):
+            raise ValueError("Unsupported pretokenization")
+        self.pretokenization = pretokenization
         self.merges = [tuple(pair) for pair in merges]
+        self.ranks = {pair: token for token, pair in enumerate(self.merges, 258)}
+        self._cache = {}
         self.vocabulary = {i: bytes([i]) for i in range(256)}
+        seen = set()
         for index, pair in enumerate(self.merges, start=258):
             if len(pair) != 2 or any(token not in self.vocabulary for token in pair):
                 raise ValueError("Merge references an unavailable byte token")
-            if pair in self.merges[:index - 258]:
+            if pair in seen:
                 raise ValueError("Duplicate merge rule")
+            seen.add(pair)
             self.vocabulary[index] = self.vocabulary[pair[0]] + self.vocabulary[pair[1]]
 
     @property
@@ -36,9 +43,14 @@ class BPETokenizer:
         return 258 + len(self.merges)
 
     @classmethod
-    def fit(cls, documents, vocab_size=8192):
+    def fit(cls, documents, vocab_size=8192, backend="reference", progress=None):
         if vocab_size < 258:
             raise ValueError("Vocabulary requires 256 bytes and two special tokens")
+        if backend == "indexed":
+            from .fast_bpe import train_merges
+            return cls(train_merges(documents, vocab_size, progress), "unicode_pieces_v1")
+        if backend != "reference":
+            raise ValueError("Unsupported BPE backend")
         streams = [list(document.encode("utf-8")) for document in documents if document]
         if not streams:
             raise ValueError("No nonempty training documents")
@@ -56,9 +68,15 @@ class BPETokenizer:
         return cls(merges)
 
     def encode(self, text, bos=False, eos=False):
-        ids = list(text.encode("utf-8"))
-        for replacement, pair in enumerate(self.merges, start=258):
-            ids = merge_pair(ids, pair, replacement)
+        from .fast_bpe import encode_piece, pieces
+        chunks = pieces(text) if self.pretokenization else [text]
+        ids = []
+        for chunk in chunks:
+            if chunk not in self._cache:
+                if len(self._cache) >= 100000:
+                    self._cache.clear()
+                self._cache[chunk] = encode_piece(chunk.encode("utf-8"), self.ranks)
+            ids.extend(self._cache[chunk])
         return ([self.bos_id] if bos else []) + ids + ([self.eos_id] if eos else [])
 
     def decode(self, ids, skip_special_tokens=True, errors="strict"):
@@ -75,11 +93,11 @@ class BPETokenizer:
         return b"".join(pieces).decode("utf-8", errors=errors)
 
     def save(self, path):
-        Path(path).write_text(json.dumps({"version": 1, "type": "byte_bpe", "special_tokens": {"bos": self.bos_id, "eos": self.eos_id}, "merges": self.merges}))
+        Path(path).write_text(json.dumps({"version": 1, "type": "byte_bpe", "special_tokens": {"bos": self.bos_id, "eos": self.eos_id}, "merges": self.merges, "pretokenization": self.pretokenization}))
 
     @classmethod
     def load(cls, path):
         data = json.loads(Path(path).read_text())
         if data.get("version") != 1 or data.get("type") != "byte_bpe" or data.get("special_tokens") != {"bos": 256, "eos": 257}:
             raise ValueError("Unsupported tokenizer format")
-        return cls(data["merges"])
+        return cls(data["merges"], data.get("pretokenization"))

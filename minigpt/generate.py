@@ -14,7 +14,11 @@ def main():
     parser.add_argument("--top-k", type=int, default=40)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", default="auto")
+    parser.add_argument("--threads", type=int, default=1)
     args = parser.parse_args()
+    if args.threads <= 0:
+        parser.error("threads must be positive")
+    torch.set_num_threads(args.threads)
     device = select_device(args.device)
     state = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
     tokenizer = tokenizer_from_state(state["tokenizer"])

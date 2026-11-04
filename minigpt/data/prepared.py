@@ -6,7 +6,9 @@ import torch
 from minigpt.tokenizer.serialization import tokenizer_from_state, tokenizer_hash
 
 
-def load_prepared(directory):
+def load_prepared(directory, holdout="validation"):
+    if holdout not in ("validation", "test"):
+        raise ValueError("Holdout must be validation or test")
     directory = Path(directory)
     raw = (directory / "manifest.json").read_bytes()
     manifest = json.loads(raw)
@@ -28,6 +30,6 @@ def load_prepared(directory):
         array = np.load(directory / f"{name}.npy", allow_pickle=False)
         if array.ndim != 1 or len(array) != info["tokens"] or array.dtype != np.uint32 or array.max() >= tokenizer.vocab_size:
             raise ValueError(f"Invalid {name} token array")
-        if name != "test":
+        if name in ("train", holdout):
             streams[name] = torch.from_numpy(array.astype(np.int64))
-    return tokenizer, streams["train"], streams["validation"], {"dataset_manifest_sha256": hashlib.sha256(raw).hexdigest()}
+    return tokenizer, streams["train"], streams[holdout], {"dataset_manifest_sha256": hashlib.sha256(raw).hexdigest()}

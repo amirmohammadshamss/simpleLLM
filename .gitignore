@@ -5,4 +5,5 @@ __pycache__/
 /data/
 /checkpoints/
 /runs/
+/reports/ci/
 .DS_Store

@@ -109,6 +109,15 @@ def test_bigram_learns():
     assert model(x, y)[1].item() < initial * 0.1
 
 
+def test_bigram_counts_match_smoothed_conditional_probabilities():
+    model = Bigram(3)
+    model.fit_counts(torch.tensor([0, 1, 0, 1, 0, 2]), smoothing=0.5)
+    probabilities = model(torch.tensor([[0, 1, 2]]))[0].softmax(-1)
+    expected = torch.tensor([[[0.5 / 4.5, 2.5 / 4.5, 1.5 / 4.5], [2.5 / 3.5, 0.5 / 3.5, 0.5 / 3.5], [1/3, 1/3, 1/3]]])
+    torch.testing.assert_close(probabilities, expected)
+    assert torch.isfinite(model.table.weight).all()
+
+
 def test_training_and_offline_cli(tmp_path):
     train = tmp_path / "train.txt"
     validation = tmp_path / "validation.txt"
