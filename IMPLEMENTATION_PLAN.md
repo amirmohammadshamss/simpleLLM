@@ -81,7 +81,7 @@ Estimated effort: 5–8 part-time days. Depends on Phases 1–2.
 - [x] Keep mixed precision opt-in and `torch.compile` disabled by default. Current delivery is FP32-only; mixed precision is not enabled or advertised.
 - [ ] Add optional optimized attention only after explicit-attention output and gradient equivalence tests pass.
 - [x] Add automated tests and a short CPU smoke run to CI; exclude dataset downloads requiring large transfers and multi-hour training. **AC12.**
-- [ ] Gate: main-model smoke training, checkpoint recovery, and CI pass before benchmarking.
+- [x] Gate: main-model smoke training, checkpoint recovery, and CI pass before benchmarking. Hosted CI was verified retrospectively for delivery; see `reports/ci_verification.json`.
 
 ## Phase 4 — Hardware benchmark and training budget
 
@@ -126,12 +126,12 @@ Estimated effort: 3–5 part-time days. Depends on Phase 5; CLI implementation c
 - [x] Write `README.md` with clean-environment setup, data preparation, tokenizer training, CPU smoke, benchmark, train/resume, evaluation, and offline generation commands.
 - [x] Complete `reports/model_card.md`, `reports/data_card.md`, experiment reports, and documented limitations. **AC11.**
 - [x] Package project-trained weights, tokenizer, configurations, source, tests, hashes, benchmark results, loss charts, and sample outputs with applicable attribution/license material.
-- [ ] Verify documented commands from a clean environment and confirm CI tests/CPU smoke pass. **AC12.**
-- [ ] Gate: review evidence for every acceptance criterion below and resolve outstanding failures.
+- [x] Verify documented commands from a clean environment and confirm CI tests/CPU smoke pass. **AC12.**
+- [x] Gate: review evidence for every acceptance criterion below and resolve outstanding failures.
 
 ## Final acceptance checklist
 
-Main-model evidence is recorded in the linked reports and local artifacts. AC01–AC11 are verified locally. AC12 remains open for hosted CI execution against this working tree; the equivalent test suite and CPU smoke passed in a fresh temporary environment. Optional and conditional future work stays unchecked.
+All twelve version-one acceptance criteria have evidence in the reports and local artifacts. Hosted [CPU checks passed](https://github.com/amirmohammadshamss/simpleLLM/actions/runs/41904835821) for implementation commit `eaa3460a833d376b169779dcada1913bdd157c2e`; see [the CI record](reports/ci_verification.json). Optional and conditional future work stays unchecked.
 
 - [x] **AC01:** Evidence of random initialization and no pretrained-model loading.
 - [x] **AC02:** Independently implemented architecture passes automated correctness tests.
@@ -144,7 +144,7 @@ Main-model evidence is recorded in the linked reports and local artifacts. AC01�
 - [x] **AC09:** Checkpoints preserve necessary state and resume without an unintended major reset.
 - [x] **AC10:** Offline CLI produces at least three samples with configurable temperature/top-k.
 - [x] **AC11:** README, setup instructions, reports, limitations, and at least 20 evaluation prompts are delivered.
-- [ ] **AC12:** Automated tests and a CPU smoke run pass in CI without long training runs.
+- [x] **AC12:** Automated tests and a CPU smoke run pass in CI without long training runs.
 
 ## Optional work after version-one acceptance
 

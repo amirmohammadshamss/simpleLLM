@@ -1,0 +1,80 @@
+{
+  "repository": "amirmohammadshamss/simpleLLM",
+  "workflow": "CPU checks",
+  "run_id": 41904835821,
+  "run_url": "https://github.com/amirmohammadshamss/simpleLLM/actions/runs/41904835821",
+  "commit": "eaa3460a833d376b169779dcada1913bdd157c2e",
+  "branch": "codex/minigpt-v1-acceptance",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-04T20:15:16Z",
+  "updated_at": "2026-11-04T20:18:17Z",
+  "tests_passed": 31,
+  "pytest_seconds": 22.12,
+  "jobs": [
+    {
+      "id": 126836591571,
+      "name": "test",
+      "conclusion": "success",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run pip install -e '.[dev]'",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run pytest -q",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sh scripts/smoke_test.sh",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "cpu_smoke": {
+    "environment": {
+      "python": "3.12.15",
+      "torch": "2.15.0+cu132",
+      "os": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
+      "device": "cpu",
+      "git_commit": "eaa3460a833d376b169779dcada1913bdd157c2e",
+      "git_dirty": false
+    },
+    "initial_loss": 2.6433115005493164,
+    "final_loss": 0.0009324050042778254,
+    "steps": 120,
+    "learning_rate": 0.01,
+    "parameters": 9568,
+    "threshold": "CE <0.1 and >90% reduction",
+    "sample": "Once upon a time.                  "
+  },
+  "verification_scope": "Implementation commit tested on the existing hosted CPU workflow; subsequent acceptance-evidence edits are documentation only."
+}

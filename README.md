@@ -1,6 +1,6 @@
 # MiniGPT Lab
 
-An independently implemented decoder-only GPT learning project. All model weights start randomly. Character and byte-level BPE tokenizers, reproducible local data preparation, GPT/Bigram models, resumable training, evaluation, inference export, and offline generation are implemented. The project includes educational Shakespeare experiments and a pinned TinyStories subset for its 17.5M-parameter main model. See [the current implementation report](reports/implementation_status.md) for completed runs and remaining acceptance checks.
+An independently implemented decoder-only GPT learning project. All model weights start randomly. Character and byte-level BPE tokenizers, reproducible local data preparation, GPT/Bigram models, resumable training, evaluation, inference export, and offline generation are implemented. The project includes educational Shakespeare experiments and a pinned TinyStories subset for its 17.5M-parameter main model. All twelve version-one acceptance criteria have evidence, including [passing hosted CI](https://github.com/amirmohammadshamss/simpleLLM/actions/runs/41904835821). See [the implementation report](reports/implementation_status.md) for results and optional follow-ups.
 
 ## Setup
 

@@ -38,4 +38,4 @@ The generations now contain recognizable story vocabulary and short grammatical 
 
 ## Main-model validation and delivery status
 
-The main architecture passes shape, gradient, tied-weight, and future-token leakage checks. BPE preparation, trainer/CLI integration, data-integrity checks, and exact interrupted/resumed CPU training are tested. The real data, tokenizer, main training, full-validation baseline comparison, and local inference export are complete. Reserved test scoring is reported separately after checkpoint selection. Hosted CI execution remains separate from the passing fresh-environment CPU checks.
+The main architecture passes shape, gradient, tied-weight, and future-token leakage checks. BPE preparation, trainer/CLI integration, data-integrity checks, and exact interrupted/resumed CPU training are tested. The real data, tokenizer, main training, full-validation baseline comparison, and local inference export are complete. Reserved test scoring is reported separately after checkpoint selection. Both fresh-environment CPU checks and hosted CI passed; see [ci_verification.json](ci_verification.json).

@@ -54,8 +54,14 @@ Delivered the [model card](model_card.md), updated [data card](data_card.md), [e
 
 Created a fresh temporary Python 3.12 environment at `/tmp/minigpt-clean-20261104`, installed the recorded dependencies and project, and ran **31 passing tests** in 26.94 seconds plus the passing CPU smoke run. The equivalent checks are configured in `.github/workflows/ci.yml`. Source, data, and artifact records remain reviewable in this working tree; no upload or external inference was performed.
 
-## Remaining gates (current)
+## Hosted CI acceptance — November 4, 2026
 
-**AC01–AC11 have local evidence. AC12 remains open for hosted CI execution against the current working tree.** Fresh-environment tests and CPU smoke passed, and the CI workflow is implemented. No current changes were pushed to request a hosted run.
+**All twelve version-one acceptance criteria are verified.** The implementation was committed as `eaa3460a833d376b169779dcada1913bdd157c2e` and pushed to the existing private repository on `codex/minigpt-v1-acceptance`. Hosted [CPU checks run 41904835821](https://github.com/amirmohammadshamss/simpleLLM/actions/runs/41904835821) passed on Ubuntu/Python 3.12: **31 tests in 22.12 seconds**, followed by a successful 120-step CPU smoke run (final loss 0.000932405). Machine-readable job, step, environment, and commit evidence is in [ci_verification.json](ci_verification.json).
+
+The existing workflow was used. GitHub rejected an attempted workflow-file update because the configured token lacks `workflow` scope; the delivery commit retains the original workflow unchanged. The optional CPU-only installation/artifact-upload proposal is preserved as [ci_workflow_proposal.yml](ci_workflow_proposal.yml) and is not active. No broader credential permission was required to verify the implementation.
+
+Source and reports are on the private delivery branch. Raw data and trained weights remain local and gitignored. The branch has not been merged into `main`; later acceptance-record commits change documentation only.
+
+## Optional follow-up work
 
 The optional 50–150M-token quality experiment and further architecture optimizations remain future work. Current samples still show broken grammar, repetition, early endings, and character inconsistencies. Near-duplicate auditing is a spot check; total system unified-memory peak was not measured. Model weights are available locally, and no public model/data release has been made.
