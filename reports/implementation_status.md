@@ -58,7 +58,7 @@ Created a fresh temporary Python 3.12 environment at `/tmp/minigpt-clean-2026110
 
 **All twelve version-one acceptance criteria are verified.** The implementation was committed as `eaa3460a833d376b169779dcada1913bdd157c2e` and pushed to the existing private repository on `codex/minigpt-v1-acceptance`. Hosted [CPU checks run 41904835821](https://github.com/amirmohammadshamss/simpleLLM/actions/runs/41904835821) passed on Ubuntu/Python 3.12: **31 tests in 22.12 seconds**, followed by a successful 120-step CPU smoke run (final loss 0.000932405). Machine-readable job, step, environment, and commit evidence is in [ci_verification.json](ci_verification.json).
 
-The existing workflow was used. GitHub rejected an attempted workflow-file update because the configured token lacks `workflow` scope; the delivery commit retains the original workflow unchanged. The optional CPU-only installation/artifact-upload proposal is preserved as [ci_workflow_proposal.yml](ci_workflow_proposal.yml) and is not active. No broader credential permission was required to verify the implementation.
+The existing workflow was used. GitHub rejected an attempted workflow-file update because the configured token lacks `workflow` scope; the delivery commit retains the original workflow unchanged. No broader credential permission was required to verify the implementation.
 
 Source and reports are on the private delivery branch. Raw data and trained weights remain local and gitignored. The branch has not been merged into `main`; later acceptance-record commits change documentation only.
 

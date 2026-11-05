@@ -2,7 +2,7 @@
 
 Source: [LLM From Scratch RFP](LLM_From_Scratch_RFP_EN.md), version 1.0.
 
-Checked items are implemented and locally verified; unchecked gates still block advancing to substantial training. Some reusable tokenizer/model components were built early. Complete phases in order and pass each decision gate before proceeding. This plan tracks implementation and delivery. Progress evidence is recorded in [reports/implementation_status.md](reports/implementation_status.md).
+Checked items are implemented and locally verified; unchecked gates still block advancing to substantial training. Some reusable tokenizer/model components were built early. Complete phases in order and pass each decision gate before proceeding. This plan tracks implementation and delivery. Progress evidence is recorded in [reports/implementation_status.md](../reports/implementation_status.md).
 
 ## Phase 0 — Foundations and project setup
 
@@ -131,7 +131,7 @@ Estimated effort: 3–5 part-time days. Depends on Phase 5; CLI implementation c
 
 ## Final acceptance checklist
 
-All twelve version-one acceptance criteria have evidence in the reports and local artifacts. Hosted [CPU checks passed](https://github.com/amirmohammadshamss/simpleLLM/actions/runs/41904835821) for implementation commit `eaa3460a833d376b169779dcada1913bdd157c2e`; see [the CI record](reports/ci_verification.json). Optional and conditional future work stays unchecked.
+All twelve version-one acceptance criteria have evidence in the reports and local artifacts. Hosted [CPU checks passed](https://github.com/amirmohammadshamss/simpleLLM/actions/runs/41904835821) for implementation commit `eaa3460a833d376b169779dcada1913bdd157c2e`; see [the CI record](../reports/ci_verification.json). Optional and conditional future work stays unchecked.
 
 - [x] **AC01:** Evidence of random initialization and no pretrained-model loading.
 - [x] **AC02:** Independently implemented architecture passes automated correctness tests.

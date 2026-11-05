@@ -90,4 +90,13 @@ The full-architecture smoke uses a short synthetic sequence and disables dropout
 
 The tokenizer maps text to integer IDs. Learned token and position embeddings map IDs to vectors. Each Pre-LayerNorm block applies masked multi-head attention and a GELU feed-forward network with residual connections. The causal mask prevents access to future tokens. A final LayerNorm and tied linear head produce vocabulary logits; cross-entropy compares each position with the next token. Autograd computes gradients, and AdamW updates random-initialized weights. Generation repeatedly samples the next token and appends it to the rolling context.
 
-See [the implementation checklist](IMPLEMENTATION_PLAN.md) and [the RFP](LLM_From_Scratch_RFP_EN.md) for remaining milestones, acceptance conditions, and scope. No general knowledge, conversational quality, or Persian generation quality is claimed.
+See [the implementation checklist](docs/IMPLEMENTATION_PLAN.md) and [the RFP](docs/LLM_From_Scratch_RFP_EN.md) for remaining milestones, acceptance conditions, and scope. No general knowledge, conversational quality, or Persian generation quality is claimed.
+
+## Project layout
+
+- `minigpt/`: data preparation, tokenizers, models, training, evaluation, and generation.
+- `configs/`: experiment settings and evaluation prompts.
+- `tests/`: automated checks; `scripts/`: smoke and benchmark entry points.
+- `docs/`: project requirements and implementation plan.
+- `reports/`: model/data cards, experiment history, metrics, and verification evidence.
+- `data/` and `checkpoints/`: local datasets and trained artifacts (gitignored).
